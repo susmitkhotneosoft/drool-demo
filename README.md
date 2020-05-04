@@ -1,4 +1,4 @@
-# drool-demo
+# Drool-demo
 
 This is Drool POC with API named "/user".
 
