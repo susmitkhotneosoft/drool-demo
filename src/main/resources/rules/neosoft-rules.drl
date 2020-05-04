@@ -1,0 +1,22 @@
+package com.neosoft;
+
+import com.neosoft.bean.UserBean;
+
+rule "admin-rule"
+	when 
+		$userBean : UserBean();
+	then
+		if($userBean.getRole().equalsIgnoreCase("Admin")){
+			if($userBean.getAge() > 18){
+				System.out.println($userBean.getName() + " is Adult");
+				$userBean.setMessage($userBean.getName() + " is Adult");
+			}else{
+				System.out.println($userBean.getName() + " is Adolescence");
+				$userBean.setMessage($userBean.getName() + " is Adolescence");
+			}
+		}else{
+			System.out.println("Rule engine feature is available for only admin users");
+			$userBean.setMessage("Rule engine feature is available for only admin users");
+		}
+end
+		
